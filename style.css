@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Roboto+Mono:wght@500&display=swap');
+
+:root {
+  --font-Comfortaa: 'Comfortaa', cursive;
+  --font-Comfortaa-light: 300;
+  --font-Comfortaa-regular: 500;
+  --font-Comfortaa-black: 700;
+
+  --font-Roboto-Mono: 'Roboto Mono', monospace;
+  --font-Roboto-Mono-regular: 500;
+
+  --color-bg: #363336;
+  --color-title: #ebb330;
+  --color-text: #f1f1f6;
+  --color-nav: #6a605c;
+}
+
+* {
+  /* outline: 1px solid limegreen !important; */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 5vh 0.8fr 0.6fr 5vh;
+  grid-template-areas: 
+    'nav'
+    'main'
+    'content'
+    'footer';
+  gap: 2rem;
+}
+
+nav {
+  grid-area: nav;
+  height: auto;  
+  position:sticky;
+  top: 0;
+
+  text-align: center;
+  font-family: var(--font-Comfortaa);
+  font-weight: var(--font-Comfortaa-black);
+  font-size: 1.25rem;
+}
+
+.nav-bar {
+  height: 100%;
+  list-style-type: none;
+
+  display: flex;
+}
+
+.nav-bar > * {
+  width: 33.333%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--color-title);
+  background-color: var(--color-nav);
+
+  box-sizing: border-box;
+  border-top: 0px none transparent;
+  border-bottom: var(--color-text) solid 1px;
+}
+
+.nav-bar > *:hover {
+  background-color: var(--color-text);
+}
+
+.nav-bar > * a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#home-nav {
+  border-left: 0px none transparent; 
+}
+
+#hobbies-nav {
+  border-right: var(--color-text) solid 1px;
+  border-left: var(--color-text) solid 1px;
+}
+
+#dreams-nav {
+  border-right: 0px none transparent; 
+}
+
+img {
+  border: 1px solid var(--color-text);
+}
+
+.main {
+  grid-area: main;
+  padding: 0 8rem;
+
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pic-main-container {
+  width: auto;
+  height: auto;
+  display: flex;  
+  justify-content: center;
+}
+
+#pic-main {
+  width: max(30vw, 300px);
+  height: auto;
+}
+
+.text-main {
+  width: 40% ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1.25rem;
+}
+
+#title {
+  text-align: center;
+  font-family: var(--font-Roboto-Mono);
+  font-weight: var(--font-Roboto-Mono-regular);
+  font-size: 2.25rem;
+  color: var(--color-title);
+}
+
+#quote-main {
+  text-align: center;
+  font-family: var(--font-Comfortaa);
+  font-weight: var(--font-Comfortaa-regular);
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.para-main {
+  text-align: justify;
+  font-family: var(--font-Comfortaa);
+  font-weight: var(--font-Comfortaa-light);
+  text-indent: 2rem;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+#content-parent {
+  grid-area: content;
+
+  display: flex; 
+  flex-direction: column;
+  justify-content: start;
+  gap: 1rem;
+}
+
+#facts {
+  text-align: center;
+  font-family: var(--font-Roboto-Mono);
+  font-weight: var(--font-Roboto-Mono-regular);
+  color: var(--color-title);
+}
+
+.content-container {
+  padding: 0 3rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  gap: max(0.5rem 1rem);
+}
+
+.image-content { 
+  width: max(25vw, 300px);
+  height: 25vh;
+}
+
+.para-content {
+  width: max(40%, 80%);
+  padding: 0.5rem 1rem;
+  
+  text-align: justify;
+  font-family: var(--font-Comfortaa);
+  font-weight: var(--font-Comfortaa-light);
+  font-size: 0.75 rem;
+  color: var(--color-text);
+  text-indent: 2rem;
+}
+
+footer {
+  grid-area: footer;
+  padding-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  
+  font-family: var(--font-Comfortaa);
+  font-weight: var(--font-Comfortaa-regular);
+  font-size: 1.25rem;
+  color: var(--color-title);
+}
+
+@media (width <= 768px)  {
+  .main {
+    flex-direction: column;
+    padding: 0 10vw;
+  }
+
+  .text-main {
+    width: 100%;
+  }
+
+  .para-main {
+    text-indent: 0;
+  }
+
+  .content-container {
+    padding: 0 5vw;
+    flex-direction: column;
+  }
+
+  .card-content {
+    flex-direction: row;
+  }
+
+  .image-content { 
+    width: 40vw;
+    height: min(70%, 40vw);
+  }
+
+  .para-content {
+    width: 80%;
+    text-indent: 0;
+  }
+}
